@@ -1,0 +1,568 @@
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000;
+    padding: 1em 0;
+    text-align: center;
+    box-shadow: 0 4px 2px -2px #FFD700;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #FFD700;
+    margin: 0;
+}
+
+nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    margin: 0 1em;
+    font-size: 1.2em;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #FFD700;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 2em 0;
+    text-align: center;
+}
+
+.section {
+    margin-bottom: 2em;
+    padding: 2em;
+    background-color: #f5f5f5;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.section:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #333;
+}
+
+.section p {
+    font-size: 1.2em;
+}
+
+.section img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.more-info-btn, .contact-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 1em 2em;
+    margin-top: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+}
+
+.more-info-btn:hover, .contact-btn:hover {
+    background-color: #333;
+}
+
+.more-info {
+    display: none;
+    margin-top: 1em;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для альбома фотографий */
+.gallery-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.gallery-slide {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-slide img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-caption {
+    margin-top: 0.5em;
+    font-size: 1.0em;
+    color: #333;
+}
+
+.arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 2em;
+    cursor: pointer;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none; /* Скрываем стрелки по умолчанию */
+}
+
+#gallery .arrow {
+    display: inline-block; /* Показываем стрелки в галерее */
+}
+
+#prevSlide {
+    left: 10px;
+}
+
+#nextSlide {
+    right: 10px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Стили для футера */
+.footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 -4px 2px -2px #FFD700;
+}
+
+.footer button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 1em;
+    margin: 0.5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+}
+
+.footer button:hover {
+    background-color: #333;
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+        padding: 0.5em 0;
+    }
+    nav a {
+        margin: 0.5em 0;
+        font-size: 1em;
+    }
+    .container {
+        width: 95%;
+        padding: 1em 0;
+    }
+    .section {
+        padding: 1em;
+    }
+    .section h2 {
+        font-size: 1.5em;
+    }
+    .section p {
+        font-size: 1em;
+    }
+    .more-info-btn, .contact-btn {
+        padding: 0.8em 1.5em;
+        font-size: 0.9em;
+    }
+    .footer button {
+        display: block;
+        width: 90%;
+        margin: 0.5em auto;
+        padding: 1em 0;
+        font-size: 1em;
+    }
+}
+/* Стили для модального окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+/* Стиль для кнопки Написать в WhatsApp */
+.contact-btn {
+    background-color: #FFD700; /* Ярко-желтый цвет */
+    color: #000; /* Черный текст */
+    font-weight: bold; /* Жирный текст */
+    border: none;
+    padding: 1em 2em;
+    margin-top: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s; /* Плавные переходы */
+}
+
+.contact-btn:hover {
+    background-color: #FFC107; /* Немного темнее при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+/* Обновление стилей для более современного вида */
+body {
+    background-color: #f0f0f0; /* Светлый фон */
+    color: #333; /* Темный текст */
+    font-family: 'Roboto', sans-serif; /* Современный шрифт */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Улучшение заголовка */
+header {
+    background-color: #1a1a1a; /* Темный фон */
+    padding: 1em 0;
+    text-align: center;
+    box-shadow: 0 4px 2px -2px #FFD700;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #FFD700;
+    margin: 0;
+}
+
+/* Обновление навигации */
+nav {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    color: #333; /* Темный цвет текста */
+    text-decoration: none;
+    margin: 0 1em;
+    font-size: 1.2em;
+    transition: color 0.3s; /* Плавный переход цвета */
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #FFD700; /* Желтый при наведении */
+}
+
+/* Обновление секций */
+.section {
+    margin-bottom: 2em;
+    padding: 2em;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-radius: 8px; /* Скругленные углы */
+}
+
+.section:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.section h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #444; /* Темно-серый цвет заголовка */
+}
+
+.section p {
+    font-size: 1.2em;
+}
+
+/* Стиль для изображений */
+.section img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для футера */
+.footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #1a1a1a; /* Темный фон */
+    color: #FFD700; /* Желтый текст */
+    box-shadow: 0 -4px 2px -2px #FFD700;
+}
+
+.footer button {
+    background-color: #FFD700;
+    color: #000;
+    border: none;
+    padding: 1em;
+    margin: 0.5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.footer button:hover {
+    background-color: #FFC107; /* Немного темнее при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em; /* Уменьшаем размер заголовка */
+    }
+    nav {
+        flex-direction: column; /* Столбец вместо строки */
+        align-items: center;
+        padding: 0.5em 0;
+    }
+    nav a {
+        margin: 0.5em 0; /* Увеличиваем отступы между ссылками */
+        font-size: 1em; /* Уменьшаем размер текста ссылок */
+    }
+    .container {
+        width: 95%; /* Увеличиваем ширину контейнера для использования большей части экрана */
+        padding: 1em 0;
+    }
+    .section {
+        padding: 1em; /* Уменьшаем внутренние отступы секций */
+    }
+    .section h2 {
+        font-size: 1.5em; /* Уменьшаем размер заголовков */
+    }
+    .section p {
+        font-size: 1em; /* Уменьшаем размер текста в параграфах */
+    }
+    .more-info-btn, .contact-btn {
+        padding: 0.8em 1.5em; /* Уменьшаем отступы внутри кнопок */
+        font-size: 0.9em; /* Уменьшаем размер текста кнопок */
+    }
+    .footer button {
+        display: block; /* Размещаем кнопки блока в столбик */
+        width: 90%; /* Увеличиваем ширину кнопок на 90% */
+        margin: 0.5em auto; /* Центрируем кнопки и добавляем отступы */
+        padding: 1em 0;
+        font-size: 1em; /* Уменьшаем размер текста кнопок */
+    }
+    .gallery-container {
+        max-width: 100%; /* Увеличиваем ширину галереи до 100% */
+    }
+    .gallery-slide img {
+        width: 100%; /* Устанавливаем ширину изображений в 100% для адаптации */
+        height: auto;
+    }
+    .arrow {
+        font-size: 1.5em; /* Уменьшаем размер стрелок */
+        padding: 0.5em; /* Уменьшаем внутренние отступы стрелок */
+    }
+}
+/* Обновленные стили для кнопки "Подробнее" */
+.more-info-btn {
+    background-color: #000; /* Черный фон */
+    color: #fff; /* Белый текст */
+    border: none;
+    padding: 1em 2em;
+    margin-top: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    display: inline-block;
+    text-align: left; /* Выровнять текст по левому краю */
+    padding-left: 2em; /* Отступ слева */
+    width: auto; /* Автоматическая ширина, чтобы кнопка была по размеру текста */
+}
+
+.more-info-btn:hover {
+    background-color: #333; /* Более светлый оттенок при наведении */
+}
+
+/* Обновленные стили для раскрываемой информации */
+.more-info {
+    display: none;
+    margin-top: 1em;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стиль для абзацев в раскрываемой информации */
+.more-info p {
+    margin-bottom: 1em; /* Отступы между абзацами */
+    line-height: 1.5; /* Высота строки для лучшего чтения */
+}
+/* Стили для альбома фотографий */
+.gallery-container {
+    position: relative;
+    max-width: 600px; /* Установите фиксированную ширину */
+    margin: auto;
+    overflow: hidden;
+}
+
+.gallery-slide {
+    display: none; /* Скрываем все изображения по умолчанию */
+    text-align: center;
+    width: 100%;
+}
+
+.gallery-slide img {
+    width: 100%; /* Устанавливаем ширину изображения в 100% */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-caption {
+    margin-top: 0.5em;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.arrow {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 2em;
+    cursor: pointer;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+}
+
+#prevSlide {
+    left: 10px;
+}
+
+#nextSlide {
+    right: 10px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Скрываем стрелки по умолчанию */
+.arrow {
+    display: none;
+}
+
+#gallery:hover .arrow {
+    display: inline-block; /* Показываем стрелки при наведении на галерею */
+}
